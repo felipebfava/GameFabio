@@ -1,0 +1,48 @@
+package sistemajogo;
+
+
+public class Main {
+    public static void main(String[] args) {
+       
+        Heroi hero;
+        Monstro monster;
+
+        //força é estática, o dano altera
+        hero = new Heroi("superheroi", 100, 5, 15);
+        monster = new Monstro("Monstrão", 150, 50, 5);
+        
+
+        //heroi ataca sem espada, o monstro não defende
+        System.out.println("\nHeroi ataca o monstro sem espada\n");
+        System.out.println("Vida do monstro: " + monster.getVida());//150
+        hero.atacar(monster, null);
+        System.out.println("Vida do monstro: " + monster.getVida());//145
+
+        //monstro ataca, heroi defende
+        System.out.println("\nMonstro ataca, heroi defende\n");
+        System.out.println("Vida do heroi: " + hero.getVida());//100
+        System.out.println("Vida do monstro: " + monster.getVida());//145
+        monster.atacar(hero, null);
+        hero.defender(monster);
+        System.out.println("Vida do heroi: " + hero.getVida());//50
+        System.out.println("Vida do monstro: " + monster.getVida());//125
+        
+        //heroi atacando com espada
+        System.out.println("\nHeroi atacando com espada\n");
+        Coletavel espada = new Arma();
+        hero.pegarArma(espada, 10);//10+15
+        hero.atacar(monster, espada);
+        System.out.println("Vida do monstro: " + monster.getVida());//100
+
+        //no jogo você só pode pegar um item de cada vez
+        hero.soltarItem();
+        Coletavel pocao = new Pocao();
+
+        System.out.println("\nHeroi usando pocao\n");
+        System.out.println("Vida do heroi: " + hero.getVida());//50
+        hero.pegarPocao(pocao, 10);//50+10
+        hero.usarPocao(hero);
+        System.out.println("Vida do heroi: " + hero.getVida());//60
+        
+    }
+}
