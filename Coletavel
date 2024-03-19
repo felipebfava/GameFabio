@@ -1,0 +1,9 @@
+package sistemajogo;
+//Comportamento basico dos itens no jogo
+
+public interface Coletavel{
+
+    public void pegar();
+    public void descartar();
+    public void usar();
+}
