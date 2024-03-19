@@ -1,0 +1,20 @@
+package sistemajogo;
+
+
+public class Arma extends Itens {
+    
+    int dano;
+
+    //verificar se a arma foi coletada
+    //a arma não pode ter um atacar, pois na main quem chama atacar é somente o heroi
+    //arma dá dano e poção dá vida
+
+    @Override
+    public void usar(){
+        if(coletado == true){ //verifica se a arma foi coletada
+            dano = dano + 3; //não funcionou essa parte
+            System.out.println("Atacando!");
+        }
+    }
+
+}
