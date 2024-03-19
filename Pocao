@@ -1,0 +1,19 @@
+package sistemajogo;
+
+
+public class Pocao extends Itens{
+
+    int vida;
+
+    //verificar se a pocao foi coletada
+    //arma dá dano e poção dá vida
+    
+    @Override
+    public void usar(){
+        if(coletado == true){
+            vida = vida * 2;
+            System.out.println("Vida aumentando");
+        }
+    }
+
+}
