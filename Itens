@@ -1,0 +1,27 @@
+package sistemajogo;
+//Todos os itens do jogo, atributo coletado indica se o item foi coletado ou nao
+
+
+public abstract class Itens implements Coletavel{
+    boolean coletado;
+
+    //construtor inicia com o boolean em false
+    public Itens() {
+        this.coletado = false;
+    }
+
+
+    public void pegar(){
+        if(coletado == false){
+            coletado = true;
+            System.out.println("Item coletado");
+        }
+    }
+
+
+    public void descartar(){
+        if(coletado == true){
+            System.out.println("Item foi jogado fora");
+        }
+    }
+}
