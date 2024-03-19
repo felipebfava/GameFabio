@@ -1,0 +1,26 @@
+package sistemajogo;
+
+
+public class Monstro extends Personagem{
+    Coletavel item;
+
+    //na ideia do jogo o monstro só ataca o heroi (o nome do monstro se torna obrigatório)
+    public Monstro(String nome, int vida, int forca, int dano){
+        super(nome, vida, forca, dano);
+    }
+
+    //monstro ataca, não defende, precisa herdar de Personagem
+    @Override
+    public void atacar(Personagem p, Coletavel item){
+        this.item = item;
+        if(this.item == null){
+            System.out.println("Usando a forca");
+            p.vida = p.vida - this.forca;
+            System.out.println("Atacando " + p.nome);
+        }
+    }
+
+    @Override
+    public void defender(Personagem p){
+    }
+}
