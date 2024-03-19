@@ -1,0 +1,69 @@
+package sistemajogo;
+
+
+public class Heroi extends Personagem{
+    Coletavel item;
+    
+    
+    public Heroi (String nome, int vida, int forca, int dano){ //construtor, o que cada personagem vai ter
+        super(nome, vida, forca, dano);
+        this.item = null;
+    }
+
+    //A ideia do jogo eh que o heroi apenas ataque o monstro e use pocao para curar vida
+    @Override
+    public void atacar(Personagem p, Coletavel item){//Heroi atacou o monstro
+        if(item == null){
+            System.out.println("Vai no soco mesmo");
+            p.vida = p.vida - this.forca;
+        } else if(item != null){
+            System.out.println("Atacando " + p.nome); //atacando nome do monstro
+            p.vida = p.vida - this.dano; //a vida do monstro diminui de acordo com o meu dano
+            System.out.println("Toma essa " + p.nome);
+        }
+    }
+
+    @Override
+    public void defender(Personagem p){
+        System.out.println("Defendendo " + p.nome);
+        p.vida = p.vida - 20;
+    }
+    
+    public void usarPocao(Personagem p){
+        p.vida = this.vida;
+        System.out.println(p.nome + " está tomando pocao");
+    }
+    
+    public void soltarItem(){
+        this.item = null;
+        System.out.println("Jogando fora o item");
+    }
+    
+    public void pegarArma(Coletavel item, int dano){
+        System.out.println("Estou pegando item");
+        this.item = item;
+        if(dano < this.dano){
+            this.dano = this.dano + dano;    
+        } else if(dano > this.dano || dano == this.dano){
+            this.dano = this.dano + dano;
+        }
+
+        if(this.item == null){
+            System.out.println("Voce nao tem nenhum item");
+        }
+    }
+
+    public void pegarPocao(Coletavel item, int vida){
+        System.out.println("Estou pegando item");
+        this.item = item;
+        if(vida < this.vida){
+            this.vida = this.vida + vida;
+        } else if(vida > this.vida || vida == this.vida){
+            this.vida = this.vida + vida;
+        }
+
+        if(this.item == null){
+            System.out.println("Voce nao tem nenhum item");
+        }
+    }
+}
