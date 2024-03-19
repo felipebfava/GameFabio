@@ -1,0 +1,29 @@
+package sistemajogo;
+
+
+public abstract class Personagem {
+
+
+    protected String nome;
+    protected int vida;
+    protected int forca;
+    protected int dano;
+
+
+    public Personagem (String nome, int vida, int forca, int dano){ //construtor, o que cada personagem vai ter
+        this.nome = nome;
+        this.vida = vida;
+        this.forca = forca;
+        this.dano = dano;
+    }
+
+
+    public abstract void atacar(Personagem p, Coletavel item);
+    public abstract void defender(Personagem p);
+
+
+    public int getVida(){
+        return vida;
+    }
+
+}
